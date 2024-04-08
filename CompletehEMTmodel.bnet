@@ -1,0 +1,65 @@
+targets, factors
+EZH2, ((E2F | cMyc | Bcatenin | MDM2) & !p53) | (E2F & cMyc & Bcatenin)
+EED, E2F & cMyc
+SUZ12, E2F & cMyc
+BMI1, ((E2F | cMyc) & (SOX9 | NANOG | TWIST) & !miR200c) | (E2F & cMyc) | (E2F & !miR200c)
+CDK2,  !p21 & !p16
+CDK4,  !p21 & !p16
+CDK6,  !p21 & !p16
+CyclinD, (E2F & (YAP1 | cMyc | NFkB | HNF6 | FOXA2 | Bcatenin) & (!SOX2 | !SNAI1 | !KLF4 | !miR34a) & !p16) | ((YAP1 | Bcatenin) & (cMyc | E2F) & !p16) | (YAP1 & Bcatenin & !p16)
+E2F, ((cMyc | E2F | YAP1) & !RB & !p21 & (!TWIST | !HNF4A)) | (cMyc & E2F & !RB) | (YAP1 & !p21)
+cMyc,  (E2F & (NFkB | YAP1 | Bcatenin | SOX2) & !p53 & (!TGFB | !HNF4A | !miR34a)) | ((YAP1 | SOX2) & (E2F | Bcatenin) & !p53 & (!TGFB | !miR34a)) | (NFkB & !p53 & (YAP1 | E2F))
+Bcatenin, (EZH2 & BMI1 & !p53 & (!miR200ab | !SOX2)) | (TGFB & !p53 & !SOX2 & !miR200ab)
+YAP1,  SOX2 & Bcatenin & !p53 & !HNF4A
+TELase,  (YAP1 & (Bcatenin | cMyc | ZEB1 | KLF4) & !p53 & E2F & (!RB | !TGFB | !SNAI1)) | (cMyc & E2F & KLF4 & !SNAI1 & !TGFB)
+GATA6,  !NANOG & !KLF4 & !cMyc & SOX2
+HNF1A,  ((HNF4A | FOXA2 | HNF1A) & !SNAI1 & !NFkB) | (HNF4A & (FOXA2 | HNF1A)) | (!HNF1A & !SNAI1 & !FOXA2 & HNF4A & NFkB) 
+HNF4A,  ((HNF1A | FOXA2 | GATA6 | HNF6 | HNF4A) & !SNAI1 & !SNAI2 & (!NFkB | !YAP1 | !p53)) | (HNF4A & (HNF1A | FOXA2 | HNF6) & (!SNAI2 | !SNAI1)) | (FOXA2 & !SNAI1 & !YAP1 & !SNAI2 & !p53) | (HNF1A & (HNF4A | FOXA2 | HNF6) & (!SNAI2 | !SNAI1) & !YAP1 & (!NFkB | !p53))
+HNF6, ((HNF4A | HNF1A) & (KLF4 | HNF6 | SOX9) & (!OCT4 | !SOX2 | !NANOG)) | (!KLF4 & !NANOG & !OCT4 & !SOX2 & !SOX9 & !HNF6 & !HNF4A & HNF1A) | (!KLF4 & !NANOG & !OCT4 & !SOX2 & !SOX9 & !HNF6 & HNF4A) 
+FOXA2,  ((HNF4A | HNF6) & (GATA6 | FOXA2 | SOX9 | Bcatenin) & !SOX2 & (!TGFB | !miR200ab)) | (HNF4A & (FOXA2 | HNF6 | GATA6) & !SOX2 & !TGFB)
+miR200ab, (HNF4A | SOX2) & !ZEB1 & !SNAI2
+miR34a,  (p53 | HNF4A) & !ZEB1 & !SNAI1
+miR200c, ((HNF4A | OCT4) & !BMI1 & !ZEB1 & !SNAI1) | (p53 & (HNF4A | OCT4) & !BMI1 & (!ZEB1 | !SNAI1))
+IkB,  (NFkB | !TAK1) & !TNFa & !IL6
+TAK1, TGFB
+RKIP,  !SNAI1
+NFkB,  !IkB | !HNF4A | !HNF1A | !p53 | !RKIP
+TNFa,  !TWIST & !FOXA2 & NFkB
+IL6,  (NFkB & !FOXA2 & !TWIST) | KLF4 | YAP1 | (SNAI1 & NFkB)
+FOXC2, (TWIST | SNAI1) & NFkB
+SNAI1,  ((TGFB | NFkB | cMyc | YAP1) & (!SNAI1 | !SNAI2 | !GATA6) & !miR34a & (!HNF4A | !HNF1A)) | (NFkB & cMyc & !miR34a & !HNF4A & !HNF1A) | (TGFB & NFkB & (cMyc | YAP1)) | (NFkB & !HNF4A & !HNF1A) | ((NANOG | OCT4) & (!HNF4A | !HNF1A) & (YAP1 | cMyc)) | (NFkB & !miR34a & !HNF1A)
+ZEB1,  ((SNAI1 | SNAI2 | TWIST | Bcatenin | FOXC2 | NFkB) & !HNF1A & (!GATA6 | !miR200ab | !miR34a | !miR200c)) | (SNAI1 & SNAI2 & NFkB & !HNF1A)
+TWIST,  (SNAI1 | NFkB) & !miR34a
+SNAI2, ((SOX9 | TWIST | NFkB | SNAI2) & !HNF4A & (!HNF1A | !FOXA2) & (!KLF4 | !SNAI1) & !miR200c & !miR200ab) | ((YAP1 | Bcatenin) & (NFkB | SNAI2) & (!HNF4A | !HNF1A) & !FOXA2 & !miR200ab & !miR200c) | (NANOG & (YAP1 | Bcatenin) & (TWIST | SNAI2) & (!HNF4A | !HNF1A) & !miR200ab & !miR200c)
+TGFB, !KLF4 & !GATA6 & YAP1
+SOX9,  ((!NFkB & !FOXA2 & SOX9) | (!NFkB & FOXA2) | NFkB) & YAP1
+OCT4,  (SOX2 & NANOG & !p53 & !RB & (!GATA6 | !miR34a)) | ((SOX2 | NANOG) & (OCT4 | KLF4) & YAP1 & !p53)
+NANOG, ((SOX2 | OCT4) & (KLF4 | NANOG) & !SNAI1 & (!GATA6 | !miR34a) & !p53) | (SOX2 & OCT4 & (NFkB | TGFB) & !p53) | (OCT4 & NANOG & NFkB & !miR34a & !p53) | (SOX2 & NANOG & NFkB & !miR34a & !p53) | (!SNAI1 & !GATA6 & !miR34a & !NANOG & !NFkB & !p53 & !KLF4 & !TGFB & SOX2 & OCT4)
+SOX2,  ((OCT4 | NANOG) & (Bcatenin | YAP1) & !p53 & !RB & !p21 & (!miR200c | !miR34a)) | (OCT4 & NANOG & (SOX2 | cMyc) & !RB & !p21 & !p53) | (OCT4 & NANOG & Bcatenin & !p21 & !p53) | (NANOG & SOX2 & cMyc & !p53 & !RB & !p21)
+KLF4, (NANOG | p53) & !SNAI1 & (!SOX9 | !miR34a)
+p53,  ((KLF4 | HNF6 | p53) & !MDM2 & (!OCT4 | !miR34a | !TWIST | !SNAI1)) | (NFkB & !MDM2 & !miR34a & !OCT4)
+PML, p53
+p14, (!EED | !SUZ12) & !EZH2 & !BMI1
+p16, (!SNAI2 | !BMI1) & !SUZ12 & !EZH2 & !EED
+p21,  ((TGFB | HNF4A | SOX9 | FOXA2 | p53 | NFkB | KLF4) & !cMyc & !Bcatenin) | (p53 & (!cMyc | !Bcatenin))
+RB, !CyclinD | !(CDK4 | CDK2 | CDK6)
+MDM2,  (p53 | TGFB | NFkB) & !PML & !p14 & !p16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
